@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+import settings from '../configs/settings';
+import { getCourseWorks } from '../utils/course';
+
+// data
+const courseWorks = await getCourseWorks();
+---
+
+<BaseLayout
+	title="My Course | Tu Nguyen"
+	description="Learn about Tu's most recent course"
+	url={`${settings.url}/course`}
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+            <Hero
+				title="My Course"
+				tagline="A collection of my course works"
+				align="center"
+			/>
+			<Grid variant="offset">
+				{
+					courseWorks.map((course) => (
+						<>
+							<li>
+								<PortfolioPreview href="course" dataSource={course} />
+							</li>
+						</>
+					))
+				}
+			</Grid>
+		</main>
+	</div>
+</BaseLayout>

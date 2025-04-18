@@ -1,0 +1,13 @@
+---
+import astroLogo from '/public/assets/astro.svg';
+import background from '/public/assets/background.svg';
+---
+
+<div id="container">
+	<img id="background" src={background.src} alt="" fetchpriority="high" />
+	<img id="astroLogo" src={astroLogo.src} alt="" fetchpriority="high" />
+	<h1 class="text-3xl font-bold underline text-blue-custom text-center flex justify-center items-center">
+  		Hello world! Astro
+	</h1>
+
+</div>

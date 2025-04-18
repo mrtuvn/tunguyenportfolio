@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Hero from '../components/Hero.astro';
+import Grid from '../components/Grid.astro';
+import settings from '../configs/settings';
+import { getBlogWorks } from '../utils/blog';
+
+// data
+const blogWorks = await getBlogWorks();
+---
+
+<BaseLayout
+	title="My Blog | Tu Nguyen"
+	description="Learn about Tu Nguyen's most recent projects"
+	url={`${settings.url}/blog`}
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="My Blog"
+				tagline="A collection of my thoughts and experiences"
+				align="center"
+			/>
+			<Grid variant="offset">
+				{
+					blogWorks.map((blog) => (
+						<li>
+							<PortfolioPreview href="blog" dataSource={blog} />
+						</li>
+					))
+				}
+			</Grid>
+		</main>
+	</div>
+</BaseLayout>
