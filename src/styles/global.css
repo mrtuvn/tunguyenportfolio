@@ -366,7 +366,7 @@ h5 {
 }
 
 pre.astro-code {
-  @apply p-4;
+  @apply p-4 rounded-md;
 }
 
 blockquote {
