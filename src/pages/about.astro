@@ -1,131 +1,322 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Gallery from '../components/Gallery.astro';
-import settings from '../configs/settings';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Gallery from "../components/Gallery.astro";
+import settings from "../configs/settings";
+import { Briefcase, Building, MapPin, UserRound, Award } from "@lucide/astro";
 ---
 
-<BaseLayout 
-  title="About me" 
+<BaseLayout
+  title="About me"
   description="Tu | Front End React Developer"
   image=`${settings.url}/assets/about-me.webp`
-	url=`${settings.url}/about`
+  url=`${settings.url}/about`
 >
-	<div class="stack gap-20">
-		<div class="stack gap-15">
-			<main class="about">
-        <div class="about_hero stack gap-4">
-          <div class="stack gap-2">
-            <h1 class="title">About Me</h1>
-            <p class="about_social">
-              Hanoi, Vietnam | 
-                <a href={`${settings.facebook}`} target="_blank"> Facebook</a> | 
-                <a href={`${settings.linkedin}`} target="_blank"> Linkedin</a> | 
-                <a href={`${settings.github}`} target="_blank"> Github</a>
-            </p>
-            <p class="tagline mt-4">I'm a front-end developer with a passion for creating beautiful and functional user interfaces. 
-              I have experience working with React, Typescript/Javascript and Tailwind CSS. I'm always looking to learn new technologies and improve my skills.
-            </p>
+  <div class="stack gap-20">
+    <div class="stack gap-15">
+      <main class="about">
+        <div class="p-4 flex items-center flex-col gap-4 mb-8 pb-4">
+          <h1 class="title text-bold text-center">About Me</h1>
+          <p class="about_social">
+            Hanoi, Vietnam |
+            <a href={`${settings.facebook}`} target="_blank"> Facebook</a> |
+            <a href={`${settings.linkedin}`} target="_blank"> Linkedin</a> |
+            <a href={`${settings.github}`} target="_blank"> Github</a>
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            class="mb-12"
+            style="opacity: 1; will-change: auto; transform: none;"
+          >
+            <h2
+              class="text-2xl font-semibold text-white light:text-black mb-6 flex items-center"
+            >
+              <svg
+                stroke="currentColor"
+                fill="currentColor"
+                stroke-width="0"
+                viewBox="0 0 640 512"
+                class="mr-3 text-blue-400"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                ></path></svg
+              > My Progress
+            </h2><div class="relative flex flex-col-reverse">
+              <div
+                class="absolute left-5 h-full w-0.5 bg-gradient-to-b from-cyan-500 to-blue-600"
+              >
+              </div><div
+                class="relative pl-16 pb-8"
+                style="opacity: 1; will-change: auto; transform: none;"
+              >
+                <div
+                  class="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 640 512"
+                    class="text-blue-400"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><path
+                      d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
+                    ></path></svg
+                  >
+                </div><h3 class="text-xl font-bold text-white mb-2">
+                  2015-2020
+                </h3><ul class="space-y-2">
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400"
+                      ><Building class="w-4" /></span
+                    >Worked as Frontend at Vnecoms/Hunasoft
+                  </li>
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Started learning
+                    web programming fundamentals
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>HTML/CSS/JavaScript
+                    basics
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>First PHP projects
+                  </li>
+                  <li>
+                    Worked on first start-up where i learned to build software.
+                    Learn PHP
+                  </li>
+
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Dived into PHP
+                    &amp; MySQL
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Built first Laravel
+                    applications
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Began learning
+                    React
+                  </li>
+                </ul>
+              </div><div
+                class="relative pl-16 pb-8"
+                style="opacity: 1; will-change: auto; transform: none;"
+              >
+                <div
+                  class="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 320 512"
+                    class="text-purple-400"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><path
+                      d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"
+                    ></path></svg
+                  >
+                </div><h3 class="text-xl font-bold text-white mb-2">
+                  2020-2021
+                </h3><ul class="space-y-2">
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400"
+                      ><Building class="w-4" /></span
+                    > Worked as Frontend at Ecommage
+                  </li>
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Learning Laravel
+                    development
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Explored React for
+                    first time
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Started with
+                    TypeScript
+                  </li>
+                </ul>
+              </div><div
+                class="relative pl-16 pb-8"
+                style="opacity: 1; will-change: auto; transform: none;"
+              >
+                <div
+                  class="absolute left-0 flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    class="text-cyan-400"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><path
+                      d="M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z"
+                    ></path></svg
+                  >
+                </div><h3 class="text-xl font-bold text-white mb-2">
+                  2021-now
+                </h3><ul class="space-y-2">
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400"
+                      ><Building class="w-4" /></span
+                    >Worked as Frontend at SmartOSC
+                  </li>
+                  <li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400"
+                      ><Briefcase class="w-4" /></span
+                    > Self-taught
+                  </li>
+                  <li class="flex items-start text-gray-300">
+                    <span class="mr-2 text-cyan-400">▹</span>Start learning deep
+                    dive into React eco-system. Includes patterns,
+                    best-practices
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Learning NestJS
+                    with Node.js/Express
+                  </li><li
+                    class="flex items-start text-gray-300"
+                    style="will-change: auto; transform: none;"
+                  >
+                    <span class="mr-2 text-cyan-400">▹</span>Open source
+                    contributions
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <img
-            width="253"
-            height="273"
-            src="/assets/me.png"
-            alt="tu Nguyen at work with a colleague"
-          />
-        </div>
-        <div class="content mt-12 mb-8 text-center">
-					As an active member of the tech community, I enjoy contributing to community-driven initiatives 
-          that empower individuals to achieve their goals in the field of web development. Whether it's guiding 
-          someone on their first project or refining advanced concepts, I'm committed to making learning accessible and enjoyable for all.
+
+          <div class="about_hero stack gap-4">
+            <div class="stack gap-2">
+              <p class="text-base mt-4">
+                I'm a front-end developer with a passion for creating beautiful
+                and functional user interfaces. I have experience working with
+                React, Typescript/Javascript and Tailwind CSS. I'm always
+                looking to learn new technologies and improve my skills.
+              </p>
+            </div>
+            <img
+              class="rounded-full min-h-[250px] aspect-square inline-block object-cover height-auto outline-offset-4 border-dashed border-lime-400 border-width-2"
+              width="250"
+              height="250"
+              src="/assets/contact/IMG_me.webp"
+              alt="tu Nguyen at work with a colleague"
+            />
+
+            <div class="content text-base text-size-md mt-12 mb-8 text-center">
+              As an active member of the tech community, I enjoy contributing to
+              community-driven initiatives that empower individuals to achieve
+              their goals in the field of web development. Whether it's guiding
+              someone on their first project or refining advanced concepts, I'm
+              committed to making learning accessible and enjoyable for all.
+            </div>
+          </div>
         </div>
 
-        <!-- <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <Gallery 
-            title="Mentor React"
-            alt="Mentor React"
-            src="/assets/community/mentor-react.webp"
-          />
-          <Gallery 
-            title="Mentor Advance Javascript"
-            alt="Mentor Advance Javascript"
-            src="/assets/community/mentor-advance-javascript.webp"
-          />
-          <Gallery 
-            title="Mentor CSS Basic"
-            alt="Mentor CSS Basic"
-            src="/assets/community/mentor-css-basic.webp"
-          />
-          <Gallery 
-            title="Mentor Front End"
-            alt="Mentor Front End"
-            src="/assets/community/mentor-frontend.webp"
-          />
-          <Gallery 
-            title="Mentor HTML CSS"
-            alt="Mentor HTML CSS"
-            src="/assets/community/mentor-html-css.webp"
-          />
-          <Gallery 
-            title="Mentor Javascript"
-            alt="Mentor Javascript"
-            src="/assets/community/mentor-javascript.webp"
-          />
-          <Gallery 
-            title="Mentor CSS Table"
-            alt="Mentor CSS Table"
-            src="/assets/community/mentor-css-table.webp"
-          />
-        </div> -->
-        
-			</main>
-		</div>
+        <h2 class="text-center text-bold mb-2">My media</h2>
 
-    
-	</div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-2">
+          <Gallery
+            title="Japan Trip"
+            alt="Japan Trip"
+            src="/assets/contact/IMG_japan.webp"
+          />
+          <Gallery
+            title="Hanoi"
+            alt="Hanoi"
+            src="/assets/contact/IMG_hanoi.webp"
+          />
+        </div>
+      </main>
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
   .about_hero {
-		font-size: var(--text-lg);
-		text-align: center;
-		width: 60ch;
+    font-size: var(--text-lg);
+    text-align: center;
+    width: 60ch;
     max-width: 100%;
-		margin: 0 auto;
-	}
-
-  .about_hero img {
-		width: 50ch;
     margin: 0 auto;
-	}
-
-  .about_hero .tagline {
-    font-size: 1rem;
   }
 
-	img {
-		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
+  .about_hero img {
+    margin: 0 auto;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
 
   section {
-		display: flex;
-		gap: 0.5rem;
-		color: var(--gray-200);
-	}
+    display: flex;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
 
-	.section-title {
-		font-size: 1.625rem;
-		color: var(--gray-0);
+  .section-title {
+    font-size: 1.625rem;
+    color: var(--gray-0);
     margin-right: 20px;
-	}
+  }
 
   .about_social a {
-		color: var(--gray-400);
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
+    color: var(--gray-400);
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
 
   .about {
     width: 100%;
